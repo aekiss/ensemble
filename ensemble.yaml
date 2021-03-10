@@ -11,12 +11,15 @@ namelists:  # parameter values to use for ensemble
         shortwave_nml:
             albicei: [ 0.36, 0.39, 0.44, 0.47 ]
             albicev: [ 0.78, 0.81, 0.86, 0.90 ]
+            snowpatch: [ 0.005, 0.01, 0.02 ]
         thermo_nml:
             chio: [ 0.001, 0.002, 0.003, 0.004, 0.006 ] # see Uotila et al 2012
         dynamics_nml:
             turning_angle: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 22, 24, 26 ] # NB: special name: turning angle in degrees used to specify cosw, sinw
             dragio: [ 0.004 ]
             mu_rdg: [ 2, 3, 4, 5 ]
+            ndte: [ 120, 240 ]
+#            revised_evp: [ true, false ]  # true requires a shorter timestep (at least at first)
     ocean/input.nml:
         auscom_ice_nml:
             aice_cutoff: [ ]
