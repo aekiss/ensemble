@@ -4,7 +4,7 @@ template: ../025deg_jra55_iaf_ensemble  # relative path to a control experiment;
 
 startfrom: 131  # if integer: restart number of control experiment to use as initial condition for perturbation experiments; or use 'rest' to start perturbations from rest
 
-nruns: 0  # total number of output directories to generate for each ensemble member
+nruns: 51  # total number of output directories to generate for each ensemble member
 
 namelists:  # parameter values to use for ensemble
     ice/cice_in.nml:
@@ -13,7 +13,7 @@ namelists:  # parameter values to use for ensemble
             albicev: [ ]
         dynamics_nml:
             turning_angle: [ 5 ] # NB: special name: turning angle in degrees used to specify cosw, sinw
-            dragio: [ ]
+            dragio: [ 0.004 ]
             mu_rdg: [ 5 ]
     ocean/input.nml:
         auscom_ice_nml:
