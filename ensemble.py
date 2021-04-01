@@ -59,7 +59,7 @@ def ensemble(yamlfile='ensemble.yaml', test=False):
     for fname, nmls in indata['namelists'].items():
         for group, names in nmls.items():
             for name, values in names.items():
-                turningangle = set([fname, group, name]) == set(['ice/cice_in.nml', 'dynamics_nml', 'turning_angle'])
+                turningangle = [fname, group, name] == ['ice/cice_in.nml', 'dynamics_nml', 'turning_angle']
                 for v in values:
                     exppath = os.path.join(os.getcwd(), '_'.join([template, name, str(v)]))
                     relexppath = os.path.relpath(exppath, os.getcwd())
@@ -166,14 +166,14 @@ def ensemble(yamlfile='ensemble.yaml', test=False):
                         shutil.copy(os.path.join(template, d, 'cice_in.nml'),
                                     os.path.join(exppath, d))
 
-                    # set jobname in config.yaml to expname
+                    # set jobname in config.yaml to reflect experiment
                     # don't use yaml package as it doesn't preserve comments
                     configpath = os.path.join(exppath, 'config.yaml')
                     with open(configpath+'_tmp', 'w') as wf:
                         with open(configpath, 'r') as rf:
                             for line in rf:
                                 if line.startswith('jobname:'):
-                                    wf.write('jobname: '+expname+'\n')
+                                    wf.write('jobname: '+'_'.join([name, str(v)])+'\n')
                                 else:
                                     wf.write(line)
                     os.rename(configpath+'_tmp', configpath)
