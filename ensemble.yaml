@@ -10,7 +10,7 @@ namelists:  # parameter values to use for ensemble
     ice/cice_in.nml:
         shortwave_nml:
             albicei: [ ]
-            albicev: [ ]
+            albicev: [ 0.9 ]
         dynamics_nml:
             turning_angle: [ 5 ] # NB: special name: turning angle in degrees used to specify cosw, sinw
             dragio: [ 0.004 ]
